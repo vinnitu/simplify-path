@@ -1,7 +1,9 @@
 function getSqDist(p1, p2) {
-    var ds = p1.map((v, i) => v - p2[i]);
-
-    return ds.reduce((d, acc) => d * d + acc, 0);
+    let sum = 0
+    for (let i = 0; i < p1.lenght; i++) {
+       let d = p1[i] - p2[i]
+       sum += d * d
+    }
 }
 
 // basic distance-based simplification
