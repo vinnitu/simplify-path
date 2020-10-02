@@ -2,7 +2,7 @@
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-Simplifies a 2D polyline, first using a radial distance check, and then a recursive Douglas-Peucker algorithm. The code is from [simplify-js](https://github.com/mourner/simplify-js), but uses arrays for better interoperability with npm modules like stack.gl, parse-svg-path, [chaikin-smooth](https://www.npmjs.org/package/chaikin-smooth), ndarray, etc. 
+Simplifies a ND polyline, first using a radial distance check, and then a recursive Douglas-Peucker algorithm. The code is from [simplify-js](https://github.com/mourner/simplify-js), but uses arrays for better interoperability with npm modules like stack.gl, parse-svg-path, [chaikin-smooth](https://www.npmjs.org/package/chaikin-smooth), ndarray, etc. 
 
 ```js
 var simplify = require('simplify-path')
