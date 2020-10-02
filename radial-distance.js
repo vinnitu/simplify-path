@@ -1,8 +1,9 @@
 function getSqDist(p1, p2) {
     var dx = p1[0] - p2[0],
-        dy = p1[1] - p2[1];
+        dy = p1[1] - p2[1],
+        dz = p1[2] - p2[2];
 
-    return dx * dx + dy * dy;
+    return dx * dx + dy * dy + dz * dz;
 }
 
 // basic distance-based simplification
