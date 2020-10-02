@@ -1,33 +1,22 @@
 // square distance from a point to a segment
 function getSqSegDist(p, p1, p2) {
-    var x = p1[0],
-        y = p1[1],
-        z = p1[2],
-        dx = p2[0] - x,
-        dy = p2[1] - y,
-        dz = p2[2] - z;
+    var vs = p1.map(v => v),
+        ds = p2.map((v, i) => v - vs[i]);
 
-    if (dx !== 0 || dy !== 0 || dz !== 0) {
+    if (ds.find(d => d !== 0)) {
 
-        var t = ((p[0] - x) * dx + (p[1] - y) * dy + (p[2] - z) * dz) / (dx * dx + dy * dy + dz * dz);
+        var t = p.reduce((v, acc, i) => (v - vs[i]) * ds[i] + acc, 0) / ds.reduce((d, acc) => d * d + acc, 0);
 
         if (t > 1) {
-            x = p2[0];
-            y = p2[1];
-            z = p2[2];
-
+            vs = p2.map(v => v);
         } else if (t > 0) {
-            x += dx * t;
-            y += dy * t;
-            z += dz * t;
+            vs = vs.map((v, i) => v + ds[i] * t);
         }
     }
 
-    dx = p[0] - x;
-    dy = p[1] - y;
-    dz = p[2] - z;
+    ds = p.map((v, i) => v - vs[i]);
 
-    return dx * dx + dy * dy + dz * dz;
+    return ds.reduce((d, acc) => d * d + acc, 0);
 }
 
 function simplifyDPStep(points, first, last, sqTolerance, simplified) {
